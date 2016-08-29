@@ -3,3 +3,6 @@ http://www.w3schools.com/css/css_rwd_templates.asp
 http://www.w3schools.com/w3css/tryw3css_templates_parallax.htm#
 
 http://cythilya.blogspot.tw/2015/02/bootstrap-rwd-template.html
+https://github.com/johnpapa/angular2-tour-of-heroes/blob/master/app/app.routing.ts
+https://github.com/angular/angular/tree/master/modules/%40angular/router
+https://github.com/angular/angular-cli/issues/1166
