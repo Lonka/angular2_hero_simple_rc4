@@ -9,16 +9,30 @@ import {  Router } from '@angular/router';
   styleUrls: ['dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  heroes:Hero[]=[];
-  constructor(private router:Router,
-    private heroService:HeroService) { }
+  heroes: Hero[] = [];
+  errorMessage:any;
+  constructor(private router: Router,
+    private heroService: HeroService) { }
 
   ngOnInit() {
+    //Mock Data 的方法
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    
+    //還在試
+    // this.heroService.getHttpHeroesSlowly()
+    //   .subscribe(
+    //   value => {
+    //     this.heroes = value;
+    //   },
+    //   error => {
+    //     this.errorMessage=<any>error;
+    //   }
+    //   );
+    
+    
   }
-  gotoDetail(hero:Hero):void{
-    let link =['/detail',hero.id];
+  gotoDetail(hero: Hero): void {
+    let link = ['/detail', hero.id];
     this.router.navigate(link);
   }
 }

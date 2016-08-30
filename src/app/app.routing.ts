@@ -8,7 +8,7 @@ export const routes:RouterConfig=[
     //{path:'',component:HeroesComponent},
     {path:'heroes',component:HeroesComponent},
     {path:'dashboard',component:DashboardComponent},
-    {path:'',redirectTo:'/dashboard',pathMatch:'full'},
+    {path:'',redirectTo:'/heroes',pathMatch:'full'},
     {path:'detail/:id',component:HeroDetailComponent},
 ];
 

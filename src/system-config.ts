@@ -11,7 +11,8 @@
 const map: any = {
   'moment': 'vendor/moment/moment.js',
   'ng2-bootstrap': 'vendor/ng2-bootstrap',
-  'underscore': 'vendor/underscore/underscore.js'
+  'underscore': 'vendor/underscore/underscore.js',
+  'angular2-in-memory-web-api': 'vendor/angular2-in-memory-web-api'
 };
 
 /** User packages configuration. */
@@ -26,7 +27,11 @@ const packages: any = {
   },
   'underscore':{
     format: 'cjs'
-  }
+  },
+  'angular2-in-memory-web-api': { 
+    main: 'index.js', 
+    defaultExtension: 'js' 
+  },
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,7 +51,8 @@ const barrels: string[] = [
 
   // Thirdparty barrels.
   'rxjs',
-
+  'angular2-in-memory-web-api',
+  
   // App specific barrels.
   'app',
   'app/shared',

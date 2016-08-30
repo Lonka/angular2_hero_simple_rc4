@@ -13,6 +13,9 @@ import {Router} from '@angular/router';
 })
 export class HeroesComponent implements OnInit {
   title = 'Tour of Heroes';
+  error: any;
+  addingHero: any;
+
   hero: Hero = {
     id: 1,
     name: 'Lonka',
@@ -21,25 +24,48 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[];
 
   constructor(
-    private router:Router,
+    private router: Router,
     private heroService: HeroService) {
   }
 
+  addHero(): void {
+    this.addingHero = true;
+    this.selectedHero = null;
+  }
+
+  close(savedHero: Hero): void {
+    this.addingHero = false;
+    if (savedHero) {
+      this.getHeroes();
+    }
+  }
+
+  deleteHero(hero: Hero, event: any): void {
+    event.stopPropagation();
+    this.heroService.delete(hero)
+      .then(res => {
+        this.heroes = this.heroes.filter(h => h !== hero);
+        if (this.selectedHero === hero) {
+          this.selectedHero = null;
+        }
+      })
+      .catch(error => this.error = error);
+  }
+
   getHeroes(): void {
-    // this.heroService.getHeroes()
-    //   .then(heroes => this.heroes = heroes)
-    //   .catch(error => this.heroes = error);
     this.heroService.getHeroes()
       .then(heroes => this.heroes = heroes)
       .catch(error => this.heroes = error);
+
   }
 
   onSelect(hero: Hero): void {
+    this.addingHero=false;
     this.selectedHero = hero;
   }
-  
-  gotoDetail():void{
-    let link = ['/detail',this.selectedHero.id];
+
+  gotoDetail(): void {
+    let link = ['/detail', this.selectedHero.id];
     this.router.navigate(link);
   }
 

@@ -18,7 +18,8 @@ module.exports = function(defaults) {
       '@angular/**/*.+(js|js.map)',
       'moment/moment.js',
       'ng2-bootstrap/**/*.js',
-      'underscore/underscore.js'
+      'underscore/underscore.js',
+      'angular2-in-memory-web-api/**/**/*.js'
     ]
   });
 };
